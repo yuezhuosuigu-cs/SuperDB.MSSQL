@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>wangzhen</Authors>
+    <Description>SQL Server数据库操作工厂</Description>
+    <RepositoryUrl>https://github.com/yuezhuosuigu-cs/SuperDB.MSSQL.git</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SuperDB" Version="1.0.0" />
+    <PackageReference Include="SuperDB.Config" Version="1.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+  </ItemGroup>
+
+</Project>
