@@ -4,17 +4,16 @@ using System.Data.SqlClient;
 
 namespace SuperDB.MSSQL
 {
-    public class MSSQLFactory : IDBFactory
+    public class MSSQLFactory : DBFactory
     {
         private IDbConnection _Connection;
-        private IDbTransaction _Transaction;
 
         public static MSSQLFactory Create()
         {
             return new MSSQLFactory();
         }
 
-        public IDbConnection Connection
+        public override IDbConnection Connection
         {
             get
             {
@@ -28,37 +27,6 @@ namespace SuperDB.MSSQL
                 }
                 return _Connection;
             }
-        }
-
-        public IDbTransaction Transaction
-        {
-            get
-            {
-                if (_Transaction == default)
-                {
-                    _Transaction = Connection.BeginTransaction();
-                }
-                return _Transaction;
-            }
-        }
-
-        public bool Commit()
-        {
-            Transaction.Commit();
-            return true;
-        }
-
-        public void Dispose()
-        {
-            _Connection?.Dispose();
-            _Connection = default;
-            _Transaction = default;
-        }
-
-        public bool Rollback()
-        {
-            Transaction.Rollback();
-            return false;
         }
     }
 }
